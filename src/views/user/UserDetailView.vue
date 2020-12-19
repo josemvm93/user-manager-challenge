@@ -16,6 +16,7 @@
                 <span>{{ userEmail }}</span>
             </div>
         </div>
+        <ErrorAlert v-if="error" :error="error" />
     </div>
 </template>
 
@@ -24,16 +25,18 @@ import { useGetUserReactive } from '@/compositions/useGetUserReactive'
 import { computed, defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
 import Loading from '@/components/common/Loading.vue'
+import ErrorAlert from '@/components/common/ErrorAlert.vue'
 
 export default defineComponent({
     name: 'UserDetailView',
     components: {
         Loading,
+        ErrorAlert,
     },
     setup() {
         const idUserString = useRoute().params['userId'].toString()
         const idUser = Number.parseInt(idUserString, 10)
-        const { loading, data: user } = useGetUserReactive(idUser)
+        const { loading, data: user, error } = useGetUserReactive(idUser)
         const userName = computed(() => {
             return user.value?.name
         })
@@ -44,6 +47,7 @@ export default defineComponent({
             loading,
             userName,
             userEmail,
+            error,
         }
     },
 })

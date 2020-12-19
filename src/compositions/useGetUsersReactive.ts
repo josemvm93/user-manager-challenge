@@ -1,11 +1,12 @@
 import { reactive, toRefs, watchEffect } from 'vue'
 import userApi, { User } from '@/api/user'
-import { ResponseData } from './responseData'
+import { ErrorType, ResponseData } from './responseData'
 
 export const useGetUsersReactive = () => {
     const state = reactive<ResponseData<User[]>>({
         data: [],
         loading: true,
+        error: null,
     })
 
     watchEffect(async () => {
@@ -16,7 +17,10 @@ export const useGetUsersReactive = () => {
             state.loading = false
         } catch (error) {
             state.loading = false
-            console.log('error', error)
+            state.error = {
+                type: ErrorType.danger,
+                message: error.message,
+            }
         }
     })
     return toRefs(state)
