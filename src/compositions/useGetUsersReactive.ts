@@ -1,4 +1,4 @@
-import { reactive, watchEffect } from 'vue'
+import { reactive, toRefs, watchEffect } from 'vue'
 import userApi, { User } from '@/api/user'
 import { ResponseData } from './responseData'
 
@@ -19,5 +19,5 @@ export const useGetUsersReactive = () => {
             console.log('error', error)
         }
     })
-    return state
+    return toRefs(state)
 }

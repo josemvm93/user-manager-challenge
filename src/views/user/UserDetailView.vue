@@ -33,13 +33,7 @@ export default defineComponent({
     setup() {
         const idUserString = useRoute().params['userId'].toString()
         const idUser = Number.parseInt(idUserString, 10)
-        const userState = useGetUserReactive(idUser)
-        const loading = computed(() => {
-            return userState.loading
-        })
-        const user = computed(() => {
-            return userState.data
-        })
+        const { loading, data: user } = useGetUserReactive(idUser)
         const userName = computed(() => {
             return user.value?.name
         })

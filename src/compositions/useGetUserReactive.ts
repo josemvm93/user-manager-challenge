@@ -1,5 +1,5 @@
 import userApi, { User } from '@/api/user'
-import { reactive, watchEffect } from 'vue'
+import { reactive, toRefs, watchEffect } from 'vue'
 import { ResponseData } from './responseData'
 
 export const useGetUserReactive = (idUser: number) => {
@@ -19,5 +19,5 @@ export const useGetUserReactive = (idUser: number) => {
             console.log('error', error)
         }
     })
-    return state
+    return toRefs(state)
 }

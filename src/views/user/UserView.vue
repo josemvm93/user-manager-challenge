@@ -16,13 +16,7 @@ export default defineComponent({
         UserList,
     },
     setup() {
-        const usersState = useGetUsersReactive()
-        const loading = computed(() => {
-            return usersState.loading
-        })
-        const users = computed(() => {
-            return usersState.data
-        })
+        const { loading, data: users } = useGetUsersReactive()
         return { users, loading }
     },
 })
