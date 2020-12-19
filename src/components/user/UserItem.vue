@@ -38,17 +38,17 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '../../scss/_variables';
+@import '@/scss/_variables';
 .item {
     display: flex;
     align-items: center;
-    padding: $space-md;
     border: 1px solid $color-blue-principal;
     margin: $space-sm;
     .name {
         flex: 80%;
         display: flex;
         padding: $space-md;
+        height: 100%;
         cursor: pointer;
         color: $color-blue-principal;
         &:hover {

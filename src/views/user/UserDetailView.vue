@@ -56,7 +56,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '../../scss/_variables';
+@import '@/scss/_variables';
 
 .view-detail {
     .back {
@@ -69,6 +69,8 @@ export default defineComponent({
         .row {
             display: flex;
             justify-content: center;
+            padding: $space-md;
+            align-items: baseline;
             label {
                 flex: 50%;
                 display: flex;
