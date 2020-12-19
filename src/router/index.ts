@@ -11,6 +11,11 @@ const routes: Array<RouteRecordRaw> = [
         component: TheMain,
         children: [
             {
+                path: '/',
+                name: 'Welcome',
+                component: WelcomeView,
+            },
+            {
                 path: '/users',
                 name: 'Users',
                 component: UserView,
@@ -19,11 +24,6 @@ const routes: Array<RouteRecordRaw> = [
                 path: '/users/:userId',
                 name: 'UserDetail',
                 component: UserDetailView,
-            },
-            {
-                path: '',
-                name: 'Welcome',
-                component: WelcomeView,
             },
         ],
     },
