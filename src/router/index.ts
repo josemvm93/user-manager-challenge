@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import TheMain from '@/layouts/TheMain.vue'
 import UserView from '@/views/user/UserView.vue'
 import UserDetailView from '@/views/user/UserDetailView.vue'
+import WelcomeView from '@/views/WelcomeView.vue'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -18,6 +19,11 @@ const routes: Array<RouteRecordRaw> = [
                 path: '/users/:userId',
                 name: 'UserDetail',
                 component: UserDetailView,
+            },
+            {
+                path: '',
+                name: 'Welcome',
+                component: WelcomeView,
             },
         ],
     },
