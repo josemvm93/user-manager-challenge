@@ -6,13 +6,13 @@ export interface User {
     email: string
 }
 
+const usersURL = process.env.VUE_APP_ROOT_API + 'users/'
+
 export default {
     getUsers() {
-        return axios.get(process.env.VUE_APP_ROOT_API + 'users')
+        return axios.get(usersURL)
     },
     getUser(id: number) {
-        return axios.get(
-            process.env.VUE_APP_ROOT_API + 'users/' + id.toString()
-        )
+        return axios.get(usersURL + id.toString())
     },
 }
