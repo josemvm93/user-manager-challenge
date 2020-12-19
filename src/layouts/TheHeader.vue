@@ -9,7 +9,7 @@ export default defineComponent({
     name: 'TheHeader',
     computed: {
         title() {
-            return 'Welcome to User Manager Challenge'
+            return 'User Manager Challenge'
         },
     },
 })
@@ -19,5 +19,7 @@ export default defineComponent({
 #header {
     display: flex;
     justify-content: center;
+    background-color: $color-blue-principal;
+    color: $color-white;
 }
 </style>

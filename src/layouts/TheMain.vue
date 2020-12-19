@@ -22,19 +22,21 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 @import '@/scss/_variables';
+$header-height: 10vh;
+$main-height: calc(95vh - #{$header-height});
+$side-bar-flex: 20%;
+$content-flex: calc(100% - #{$side-bar-flex});
 .header {
-    background-color: $color-blue-principal;
-    color: $color-white;
+    height: $header-height;
 }
 .main {
     display: flex;
-    height: 80vh;
+    height: $main-height;
     .side-bar {
-        flex: 20%;
-        border: 1px solid $color-blue-principal;
+        flex: $side-bar-flex;
     }
     .content {
-        flex: 80%;
+        flex: $content-flex;
         margin: $space-md;
     }
 }
